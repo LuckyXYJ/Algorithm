@@ -1,4 +1,4 @@
-package Data_动态数组;
+package Data_动态数组_链表;
 
 public class ArrayList1<E> extends AbstractList<E> {
 

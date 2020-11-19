@@ -13,25 +13,41 @@ package 栈;
 import java.util.Stack;
 
 public class LC_856_括号的分数 {
-    public int scoreOfParentheses(String s) {
+
+    public static void main(String[] args) {
+        int score = scoreOfParentheses("()(())");
+        System.out.println("分数 = " + score);
+    }
+
+    public static int scoreOfParentheses(String s) {
 
         Stack<Character> stack = new Stack<>();
+        Stack<Integer> scoreStack = new Stack<>();
         int len = s.length();
         int score = 0;
         for (int i = 0; i < len; i++) {
             char c = s.charAt(i);
             if (c == ')') {
-                int sc = 0;
-                while (stack.pop() != '(') {
-                    sc += 1;
+                if (stack.pop() == '(') {
+                    score = (score > 0 )? (score*2) : 1;
+                    System.out.println("分数2 = " + score);
+                }else {
+                    score += scoreStack.pop();
+                    System.out.println("分数3 = " + score + "; i = " + i);
+                    i--;
                 }
-
             }else {
+                if (stack.size() > 0 && score > 0) {
+                    scoreStack.push(score);
+                    stack.push('+');
+                    score = 0;
+                    System.out.println("分数1 = " + score);
+                }
                 stack.push(c);
             }
         }
 
-        return 0;
+        return score;
     }
 
     public int scoreOfParentheses1(String s) {

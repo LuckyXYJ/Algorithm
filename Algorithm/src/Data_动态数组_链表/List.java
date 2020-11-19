@@ -1,4 +1,4 @@
-package Data_动态数组;
+package Data_动态数组_链表;
 
 public interface List<E> {
     static final int ELEMENT_NOT_FOUND = -1;

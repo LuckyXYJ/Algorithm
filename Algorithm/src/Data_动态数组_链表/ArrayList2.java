@@ -1,4 +1,4 @@
-package Data_动态数组;
+package Data_动态数组_链表;
 
 /**
  * 增加了动态缩容操作

@@ -1,5 +1,7 @@
 package 链表;
 
+import Data_动态数组_链表.List;
+
 public class LC_206_反转链表 {
 
     /*递归*/
@@ -26,5 +28,4 @@ public class LC_206_反转链表 {
         }
         return newHead;
     }
-
 }
