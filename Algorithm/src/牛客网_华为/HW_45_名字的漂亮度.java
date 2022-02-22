@@ -1,6 +1,6 @@
 package 牛客网_华为;
 
-import sun.applet.Main;
+//import sun.applet.Main;
 
 import java.util.Arrays;
 import java.util.Scanner;

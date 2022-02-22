@@ -1,7 +1,7 @@
 package 栈;
 
 //import sun.jvm.hotspot.oops.Mark;
-import sun.lwawt.macosx.CSystemTray;
+//import sun.lwawt.macosx.CSystemTray;
 
 import java.util.Stack;
 

@@ -1,6 +1,6 @@
 package 二叉树;
 
-import com.sun.deploy.panel.ITreeNode;
+//import com.sun.deploy.panel.ITreeNode;
 
 import java.util.LinkedList;
 

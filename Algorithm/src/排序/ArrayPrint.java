@@ -12,6 +12,7 @@ public class ArrayPrint {
             }
         }
         str1 = str1 + "}";
+        System.out.println(str1);
         return str1;
     }
 

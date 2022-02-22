@@ -15,7 +15,7 @@ package 排序;
 public class PX_冒泡排序 {
     public static void main(String[] args) {
 
-        int[] arr = {5,6,74,3,23,5665,322,2};
+        int[] arr = {3,2,1,5,6,4};//{5,6,74,3,23,5665,322,2};
 
         bublleSort(arr,arr.length);
     }
