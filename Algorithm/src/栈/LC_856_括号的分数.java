@@ -10,6 +10,8 @@ package 栈;
     * (()(()))  6
  */
 
+import org.junit.Test;
+
 import java.util.Stack;
 
 public class LC_856_括号的分数 {
@@ -17,6 +19,45 @@ public class LC_856_括号的分数 {
     public static void main(String[] args) {
         int score = scoreOfParentheses("()(())");
         System.out.println("分数 = " + score);
+    }
+
+    @Test
+    public void test() {
+        int score = scoreOfParentheses2("()(())");
+        System.out.println("分数 = " + score);
+    }
+
+    public int scoreOfParentheses2(String s) {
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(0);
+
+        for (int i = 0; i < s.length(); i++) {
+            Character c = s.charAt(i);
+            if (c == '(') {
+                stack.push(0);
+            }else {
+                int v = stack.pop();
+                int w = stack.pop();
+                stack.push(w+Math.max(v << 1, 1));
+            }
+        }
+        return stack.pop();
+    }
+
+    public int scoreOfParentheses4(String S) {
+        int ans = 0, bal = 0;
+        for (int i = 0; i < S.length(); ++i) {
+            if (S.charAt(i) == '(') {
+                bal++;
+            } else {
+                bal--;
+                if (S.charAt(i-1) == '(')
+                    ans += 1 << bal;
+            }
+        }
+
+        return ans;
     }
 
     public static int scoreOfParentheses(String s) {
@@ -48,27 +89,6 @@ public class LC_856_括号的分数 {
         }
 
         return score;
-    }
-
-    public int scoreOfParentheses1(String s) {
-        int len = s.length();
-        if (len == 0) return 0;
-        int score = 1;
-        for (int i = 0; i < len; i++) {
-            char c = s.charAt(i);
-            if (c == ')'){
-                int score1 = 1;
-                if (i + 1 < len) {
-                    char r = s.charAt(i+1);
-                    if (r == ')'){
-                        score1 *= 2;
-                    }else {
-
-                    }
-                }
-            }
-        }
-        return 0;
     }
 
 }

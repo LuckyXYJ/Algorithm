@@ -1,6 +1,7 @@
 package 栈;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class LC_20_有效的括号 {
