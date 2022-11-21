@@ -7,9 +7,15 @@ public class ListNode {
     public int val;
     public ListNode next;
 
+    public ListNode() {
+        val = 0;
+    }
+
     public ListNode(int x) {
         val = x;
     }
+
+    public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 
     @Override
     public boolean equals(Object o) {
