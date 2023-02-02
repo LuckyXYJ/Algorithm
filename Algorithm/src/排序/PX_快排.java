@@ -11,34 +11,53 @@ public class PX_快排 {
     @Test
     public void test() {
         int[] nums = {3,2,1,5,6,4};
-        sort(nums);
+//        sort(nums);
+        quickSort(nums, 0, nums.length);
         ArrayPrint.printlnArr(nums);
     }
 
     public void sort(int[] nums) {
-        quickSort(nums, 0, nums.length - 1);
+        quickSort(nums, 0, nums.length);
     }
 
     public void quickSort(int[] nums, int left, int right) {
 
-        if (left >= right) return;
+        if (right - left < 2) return;
         int p = partition(nums, left, right);
-        quickSort(nums, left, p - 1);
+        quickSort(nums, left, p);
         quickSort(nums, p + 1, right);
     }
 
     public int partition(int[] nums, int left, int right) {
 
-        int j = left;
-        for (int i = left + 1; i <= right; i++) {
-            if (nums[i] < nums[left]) {
-                j++;
-                swap(nums, i, j);
+        swap(nums, left, left + (int)(Math.random() * (right - left)));
+
+        int temp = nums[left];
+        right --;
+
+        while (left < right) {
+
+            while (left < right) {
+
+                if (temp < nums[right]) {
+                    right --;
+                }else {
+                    nums[left++] = nums[right];
+                    break;
+                }
+            }
+
+            while (left < right) {
+                if (temp > nums[left]) {
+                    left ++;
+                }else {
+                    nums[right--] = nums[left];
+                    break;
+                }
             }
         }
-        swap(nums, left, j);
-
-        return j;
+        nums[left] = temp;
+        return left;
     }
 
     public void swap(int[] nums, int left, int right) {
@@ -46,9 +65,5 @@ public class PX_快排 {
         nums[left] = nums[left] ^ nums[right];
         nums[right] = nums[left] ^ nums[right];
         nums[left] = nums[left] ^ nums[right];
-
-//        nums[left] = nums[left]^nums[right];
-//        nums[right] = nums[left]^nums[right];
-//        nums[left] = nums[left]^nums[right];
     }
 }
